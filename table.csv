@@ -1,0 +1,24 @@
+Entity,Relationship,Related Entity,Type,Notes
+users,has many,addresses,One-to-Many,A user can have multiple shipping/billing addresses
+users,has many,carts,One-to-Many,One active cart per user (or guest)
+users,has many,orders,One-to-Many,Order history
+users,has many,reviews,One-to-Many,Product reviews written by user
+users,has many,coupon_usages,One-to-Many,Coupons used by the user
+categories,has many (self),categories,One-to-Many,Nested categories (parent → children)
+categories,many-to-many,products,Many-to-Many,via product_categories
+products,has many,product_variants,One-to-Many,"Size, color, storage options, etc."
+products,has one / has many,inventory,One-to-Many,Stock tracking
+products,has many,cart_items,One-to-Many,Items currently in carts
+products,has many,order_items,One-to-Many,Items that were purchased
+products,has many,reviews,One-to-Many,Customer reviews
+product_variants,has one / has many,inventory,One-to-Many,Stock at variant level
+product_variants,has many,cart_items,One-to-Many,
+product_variants,has many,order_items,One-to-Many,
+carts,has many,cart_items,One-to-Many,Items inside a cart
+orders,has many,order_items,One-to-Many,Line items of the order
+orders,has many,payments,One-to-Many,Payment attempts / records
+orders,has many,order_status_history,One-to-Many,Status change log
+orders,belongs to,coupons,Many-to-One,Optional coupon applied
+orders,has many,coupon_usages,One-to-Many,
+coupons,has many,coupon_usages,One-to-Many,Usage tracking
+addresses,used by,orders,One-to-Many,Shipping & Billing address snapshots
